@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Movie on Tweets</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		
+		<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/flatly/bootstrap.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="css/styles.css" rel="stylesheet">
+
+		<!-- load fontawesome library -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<style type="text/css">
+		body {
+			font-size: 16px;
+		}
+		</style>
+
+	</head>
+	<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <b><a href="/nu-eecs349" class="navbar-brand">Movie on Tweets</a></b>
+    </div>
+    <nav class="collapse navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="https://github.com/Mayank10lm/Tweet-Sentiment-Analysis">GitHub Reposity</a>
+        </li>
+<!--         <li>
+          <a href="#">Download Zip files</a>
+        </li> -->
+        <li>
+          <a href="file:///Users/mayank/Desktop/movie-on-tweets-gh-pages/index.html">Final Report</a>
+        </li>
+		<li>
+          <a href="#sec5">About Me</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</nav>
+
+<div id="masthead">  
+  <div class="container">
+      <div class="row">
+        <div class="jumbotron">
+        <center>
+
+        	<!-- film icon -->
+        	<h1><i class="fa fa-film fa-2x"></i></h1>
+        	
+			<h1>Movie on Tweets <i class="fa fa-twitter fa-1x"></i></h1>
+          	<br>
+           	<p class="lead">
+           	  Project Completion 
+           	 <a href="https://github.com/Mayank10lm/Tweet-Sentiment-Analysis">Twitter Sentiment Analysis</a>
+			</p>
+        	
+			<p class="lead">Made by<a href="mailto:Mayanksehrawat177@gmail.com"> Mayank</a></p>
+            
+            <br>
+            
+			<a href="https://github.com/Mayank10lm/Tweet-Sentiment-Analysis" class="btn btn-info" role="button">GitHub Repository</a>
+			<!-- <a href="#" class="btn btn-success" role="button">Download Zip files</a> -->
+			<a href="FinalReport.pdf" class="btn btn-warning" role="button">Final Report</a>
+        </center>
+        </div>
+          
+        </div>
+
+      </div> 
+  </div><!--/container-->
+</div><!--/masthead-->
+
+<!--main-->
+<div class="container">
+	<div class="row">
+      <!--left-->
+      <div class="col-md-3" id="leftCol">
+        <ul class="nav nav-stacked" id="sidebar">
+          <li><a href="#masthead">Home</a></li>
+          <li><a href="#sec0">Motivation</a></li>
+          <li><a href="#sec1">Solution</a></li>
+		  <li><a href="#sec2">Dataset</a></li>
+          <li><a href="#sec3">Training and Testing</a></li>
+          <li><a href="#sec4">Result</a></li>
+          <li><a href="#sec5">Contact</a></li>
+        </ul>
+      </div><!--/left-->
+      
+      <!--right-->
+      <div class="col-md-9">
+
+      	<div class="row" id="sec0">
+	        <h1><i class="fa fa-angle-right fa-1x"></i> Motivation</h1>
+	        <hr>
+	        <p>Movie on Tweets is a IMDb movie score predictor, using movie's tweets retrieved from Twitter. My task is to analyze the feedback of a movie (either positive or negative) based on tweets that have mentioned the movie, for example, using hashtags. </p>
+	        
+	        <p>Twitter is one of the most popular social media where people post comments about their everyday life. 
+	        	<br>
+	        	Users share their reviews about a movie on Twitter which possibly encourage or discourage their followers’ motivations of watching the movie. Since Twitter restricts each tweet to be less than 140 characters, users’ comments tend to be straightforward. In addition, because of its huge influences, many movies have started to include a hashtag in their trailers that tell people to tweet about them to attract social attention. Therefore, Twitter has become a great platform to examine people’s feedback on a movie. By analyzing the sentiment of thousands of tweets by people who have watched the film, a general review of the movie can be made. Users can then use the review to decide whether or not to watch the film.</p>
+	        <hr>
+        </div>
+
+
+        <div class="row" id="sec1">
+        	<h1><i class="fa fa-angle-right fa-1x"></i> Solution</h1>
+        	<hr>
+	        <p>
+	          I chose Naive Bayes Network algorithm as my approach to this problem. <br>
+	        </p>
+	        <p>
+	          Naive Bayes Network is a simple and popular approach towards sentiment analysis. It is very easy to implement, and works well with big training data. The more of training dataset, the better of testing performance.
+	         </p>  
+	         <p>
+	          I chose each word of a moview review as an attribute, storing the times appears in positive or negative class. I also implemented bigram, which is two words, as another attribute.
+	          </p>
+	        
+
+        </div>
+
+
+        <hr>
+        
+
+        <div class="row" id="sec2">
+        	<h1><i class="fa fa-angle-right fa-1x"></i> Dataset</h1>
+        	<hr>
+	        <p>
+	          I used Large Movie Review Dataset from Stanford University (<a href="http://ai.stanford.edu/~amaas/data/sentiment/">http://ai.stanford.edu/~amaas/data/sentiment/</a>) as training dataset. 
+	      	</p>
+	      	<p>
+	          As for testing dataset, I used Twitter API and Python to retrieve tweets from Twitter by search keywords of a movie. After preprocessing and filtering spam and irrelevant tweets, we use this tweets to test our Naive Bayes Network Classifier.
+	        </p>
+
+	        <p>I built tweets datasets of <a href="http://www.imdb.com/title/tt2802144/?ref_=nv_sr_1"><i>Kingsman</i></a>, <a href="http://www.imdb.com/title/tt2322441/?ref_=nv_sr_1"><i>Fifty Shades of Grey</i></a>, and <a href="http://www.imdb.com/title/tt2084970/?ref_=nv_sr_1"><i>The Imitation Game</i></a> from Twitter.</p>
+
+			<p>
+	          Check out our test movie datasets in <a href="https://github.com/chenzhe142/nu-eecs349/tree/gh-pages/source_code/datasets">here</a>.
+	        </p>
+
+	        <hr>
+        </div>
+
+        
+        
+
+        <div class="row" id="sec3">
+        	<h1><i class="fa fa-angle-right fa-1x"></i> Training and Testing</h1>
+	        <hr>
+	        <h3>Perform 10-fold cross validation with Large Movie Review Dataset</h3>
+	        <!-- <p>First, we use the Large Movie Review Dataset from Stanford to train</p> -->
+	        <p>The result of 10-fold cross validation is shown as follows.</p>
+
+	        <!-- <p>Traning and testing result is shown in the following table:</p> -->
+
+			<table class="table table-striped table-hover">
+    			<thead>
+	          	<tr class="success">
+	          		<th colspan="2">Features</th>
+	          		<th>Single Words</th>		
+	          		<th>Single Word + Bigram</th>
+	          	</tr>
+	          	</thead>
+    			<tbody>
+	          	<tr class="">
+	          		<td></td>
+	          		<td>Precision</td>	
+	          		<td>0.855773972033</td>		
+	          		<td>0.920307652833</td>
+	          	</tr>
+	            <tr class="" style="background-color: #f9f9f9">
+	          		<td>Positive</td>
+	          		<td>Recall</td>	
+	          		<td>0.888353508419</td>
+	          		<td>0.797222480181</td>
+	          	</tr>
+	          	<tr class="">
+	          		<td></td>
+	          		<td>F-measure</td>	
+	          		<td>0.870217714806</td>
+	          		<td>0.853164955523</td>
+	          	</tr>
+	          	<tr class="active">
+	          		<td></td>
+	          		<td>Precision</td>	
+	          		<td>0.882733702769</td>
+	          		<td>0.821094050964</td>
+	          	</tr>
+	          	<tr class="active">
+	          		<td>Negative</td>
+	          		<td>Recall</td>	
+	          		<td>0.85220049602</td>
+	          		<td>0.931654782064</td>
+	          	</tr>
+	          	<tr class="active">
+	          		<td></td>
+	          		<td>F-measure</td>	
+	          		<td>0.865545492618</td>
+	          		<td>0.871933113784</td>
+	          	</tr>
+	          	</tbody>
+	        </table>
+
+	        <p>I can see from the table above, that adding bigram increases the performance slightly, but not very obvious. This maybe because when adding features to classifier, some of them are useless. These irrelevant features create noise to the classifier, and thus not improving the accuracy as expected.</p>
+	        <hr>
+	        <h3>Test Naive Bayes Network Classifier with movie tweets review datasets</h3>
+	        <p>After retrieving and pre-processing tweets from Twitter, I tested Naive Bayes Network Classifier with 3 different movie datasets.
+	         I have successfully retrieved our test data as 2000 samples for each movie from Twitter using Twitter API.
+				In python, I used filter named langid to filter language other than English, and then get rid of examples with links to avoid unnecessary information like ads. Results in details are shown in next Section.</p>
+
+		</div>
+
+        <div class="row" id="sec4">
+        	<h1><i class="fa fa-angle-right fa-1x"></i> Result</h1>
+	        <hr>
+	        <p>The test results of 3 different movies are shown as follows.</p>
+			<img src="graphs/1.jpg" width="600" class="centerline">
+			<img src="graphs/2.png" width="600" class="centerline">
+			<img src="graphs/3.png" width="600" class="centerline">
+			<br>
+			<img src="graphs/result_graph.jpg" width="600" class="centerline">
+			<div style="text-align:center">Histogram of movie evaluation result</div>
+			<br>
+			<p>
+				From the Histogram of movie evaluation result, i can see that Naive Bayes Network Classifier gets the relatively close score, compare to the real IMDb score. 
+			</p>
+			<p>
+				Training Naive Bayes Network Cliassfier with 4,000 examples, and test datasets with only single-word attributes gives the best result, although it performs poorly on predicting the score of <i>Fifty Shades of Grey</i>.
+			</p>
+			<p>
+				In future work, i would like to add caption and punctuation as new attributes to our Naive Bayes Network Classifier. These two features are very common in tweets, and would significantly increase the accuracy of our classifier.
+			</p>
+		<br>
+		</div>
+
+        <hr>
+
+        <div class="row" id="sec5">
+        	<h1><i class="fa fa-angle-right fa-1x"></i>Contact</h1>
+        	<div class="row">
+        		<hr style="margin-bottom: 0px">
+	        	<div class="col-md-6">
+	        		<h3>Mayank</h3>
+	        		<p>Computer Science Engineer<br>
+	        		<a href="mailto: Mayanksehrawat177@gmail.com">Mayanksehrawat177@gmail.com</a>
+	        		</p>
+	        	</div>
+
+
+        	<div class="row">
+        </div>
+
+        <hr>
+
+        </div><!--/right-->
+  	</div><!--/row-->
+</div><!--/container-->
+	<br>
+	<br>
+	<br>
+
+	<footer>
+    	<div class="container">
+      		<p class="text-center">      			
+      			 Built by <a href="https://github.com/Mayank10lm">Mayank</a>, using <a href="http://bootswatch.com/flatly/">bootswatch Flaty</a>
+      		</p>
+
+    	</div>
+  	</footer>
+
+	<!-- script references -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/scripts.js"></script>
+	</body>
+</html>
